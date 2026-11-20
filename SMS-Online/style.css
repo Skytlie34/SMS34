@@ -1,0 +1,81 @@
+/* Шрифты: файлы кладём в fonts/ */
+@font-face{font-family:"SouthGhetto";src:local("SouthGhetto"),local("South Ghetto"),url("fonts/SouthGhetto.ttf");font-display:swap}
+@font-face{font-family:"STENGAZETA";src:local("STENGAZETA"),local("Stengazeta"),url("fonts/STENGAZETA.ttf");font-display:swap}
+
+:root{
+  --red:#DE0923; --mute:#8a8a8a; --line:#ececec;
+  --display:"SouthGhetto","Russo One","Arial Black",sans-serif;
+  --poster:"STENGAZETA",Impact,"Arial Narrow",sans-serif;
+  --text:"Inter",system-ui,sans-serif;
+  /* Я это делал под свой моник 1440px, так что сосо, бедность. */
+  --u:calc(100vw / 1440);
+}
+*{box-sizing:border-box;margin:0}
+body{background:#fff;color:#000;font:400 calc(16*var(--u))/1.5 var(--text);overflow-x:clip}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:none}
+:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+
+/* Страницы на #якорях, без JS */
+.page{display:none;min-height:100vh}
+.page:target,#main{display:flex}
+#p404:target~#main,#server:target~#main,#kaban:target~#main{display:none}
+
+.smile{display:block;image-rendering:pixelated}
+.smile img{width:100%;image-rendering:pixelated}
+.smile:hover{opacity:.7}
+.logo{font:400 calc(128*var(--u))/1 var(--display);letter-spacing:.43em;color:var(--red)}
+
+/* Main */
+#main{position:relative;flex-direction:column;padding-bottom:calc(60*var(--u))}
+.login{position:absolute;top:calc(34*var(--u));right:calc(117*var(--u));padding:calc(22*var(--u)) calc(15*var(--u)) calc(18*var(--u));border-radius:calc(8*var(--u));background:var(--red);color:#fff;font:400 calc(34*var(--u))/1 var(--poster);text-transform:uppercase}
+.login:hover{opacity:.85}
+.hero{display:grid;grid-template-columns:1fr 1fr;align-items:center;margin-top:calc(241*var(--u));padding-left:calc(42*var(--u))}
+.hero>img{width:calc(627*var(--u));image-rendering:pixelated}
+.hero .logo{text-align:center;margin-right:-.43em}
+.cards{display:grid;grid-template-columns:calc(495*var(--u)) calc(495*var(--u)) 1fr;margin-top:calc(459*var(--u));padding-left:calc(26*var(--u))}
+.card{display:block}
+.pic{display:flex;align-items:center;height:calc(267*var(--u));margin-bottom:calc(30*var(--u))}
+.pic img{height:100%;width:auto;image-rendering:pixelated}
+.wip{margin-left:calc(34*var(--u));font:400 calc(34*var(--u))/1.9 var(--display);letter-spacing:.33em;text-transform:uppercase;color:var(--red)}
+.card b{display:block;font-weight:500;font-size:calc(28*var(--u));line-height:1.3}
+.card small{display:block;font-size:calc(18*var(--u));color:var(--mute)}
+.card:hover b,.foot a:hover b{color:var(--red)}
+.foot{display:grid;grid-template-columns:1fr auto auto;column-gap:calc(97*var(--u));margin:calc(455*var(--u)) calc(80*var(--u)) 0;padding-top:calc(37*var(--u));border-top:calc(2*var(--u)) solid var(--line)}
+.foot a,.contact{text-align:center}
+.foot b{display:block;font-weight:500;font-size:calc(24*var(--u))}
+.foot small{display:block;font-size:calc(16*var(--u));color:var(--mute)}
+.brand{display:block;font:400 calc(24*var(--u))/1.3 var(--display);color:var(--red)}
+.dc{display:inline-flex;margin-top:calc(14*var(--u));color:var(--mute)}
+.dc:hover{color:var(--red)}
+.dc svg{width:calc(24*var(--u));height:calc(24*var(--u));fill:currentColor}
+
+/* Server */
+#server{flex-direction:column;padding:calc(130*var(--u)) calc(80*var(--u)) calc(60*var(--u)) calc(56*var(--u))}
+#server .logo{font-size:calc(256*var(--u));line-height:.9;margin-bottom:calc(60*var(--u))}
+#server h2{margin:calc(110*var(--u)) 0 calc(30*var(--u));text-align:right;font:800 calc(96*var(--u))/1.1 var(--text);letter-spacing:-.01em}
+#server p{max-width:calc(1200*var(--u));margin-bottom:calc(36*var(--u));font-size:calc(36*var(--u));line-height:1.6}
+#server p a{text-decoration:underline;text-underline-offset:.15em}
+#server p a:hover{color:var(--red)}
+#server>.smile{width:calc(60*var(--u));margin:calc(80*var(--u)) auto 0}
+
+/* 404 и Kaban вписываются в экран целиком) */
+#p404,#kaban{--u:min(calc(100vw / 1440),calc(100vh / 1024));flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.err{position:relative;font:400 calc(340*var(--u))/1 var(--display);color:var(--red);text-box:trim-both cap alphabetic}
+.err .smile{position:absolute;left:50%;top:50%;width:calc(60*var(--u));transform:translate(-50%,-50%)}
+.pig{width:calc(498*var(--u));height:calc(345*var(--u));object-fit:cover;border-radius:calc(90*var(--u));margin:calc(40*var(--u)) 0 calc(83*var(--u))}
+.nope{font:400 calc(128*var(--u))/1 var(--display);text-transform:uppercase;color:var(--red);text-box:trim-both cap alphabetic}
+.photo{width:calc(977*var(--u));border-radius:calc(44*var(--u))}
+#kaban .smile{width:calc(60*var(--u));margin-top:calc(56*var(--u))}
+
+/* Телефон */
+@media (max-width:800px){
+  :root{--u:calc(100vw / 900)}
+  #p404,#kaban{--u:min(calc(100vw / 1200),calc(100vh / 1024))}
+  .hero{grid-template-columns:1fr;justify-items:center;gap:calc(60*var(--u));padding:0;margin-top:calc(200*var(--u))}
+  .hero>img{width:calc(560*var(--u))}
+  .cards{grid-template-columns:1fr;row-gap:calc(70*var(--u));margin-top:calc(200*var(--u))}
+  .foot{grid-template-columns:1fr 1fr;margin-top:calc(200*var(--u))}
+  .foot>div{grid-column:1/-1;margin-bottom:calc(40*var(--u))}
+  .login{right:calc(40*var(--u))}
+}
